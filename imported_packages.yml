@@ -1,0 +1,28 @@
+#conda create --name instagram python=3.7 -y
+#conda env update --name instagram --file=imported_packages.yml
+name: instagram
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pyyaml
+  - numpy
+  - pandas
+  - selenium
+  - beautifulsoup4
+  - pip
+  - xlrd
+  - xlsxwriter
+  - openpyxl
+  - h5py=2.10.0
+  - jupyterlab
+  - pip:
+    - webdriver-manager
+    - user_agent
+    - selenium-wire
+
+
+
+
+
+
