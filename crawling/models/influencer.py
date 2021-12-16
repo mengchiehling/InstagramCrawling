@@ -72,8 +72,7 @@ class Influencer:
 
         # You can transform followers and engagement_rate from str to int and float, respectively, if you need.
 
-        influencer_d
-        ict = {'name': influencer_name,
+        influencer_dict = {'name': influencer_name,
                            'instagram_id': instagram_id,
                            'topics': topics,
                            'followers_starngage': followers,
