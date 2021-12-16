@@ -46,7 +46,7 @@ class Influencer:
             rows_html = table_html.find('tbody').find_all('tr')
 
             for row_html in rows_html:
-                all_influencer.append(self.exact_influencer_info(row_html))
+                all_influencer.append(self.extract_influencer_info(row_html))
 
             # after finishing crawler the current page, we move to the next page:
             icons_html = plp_html.find('ul', {'class': 'pagination justify-content-center'}).find_all('li')
@@ -59,7 +59,7 @@ class Influencer:
 
         return all_influencer
 
-    def exact_influencer_info(self, row_html: bs4.element.Tag) -> Dict:
+    def extract_influencer_info(self, row_html: bs4.element.Tag) -> Dict:
 
         influencer_content = row_html.find('td', {'class': 'align-middle text-break'}).contents
         influencer_name = influencer_content[0]
@@ -72,7 +72,8 @@ class Influencer:
 
         # You can transform followers and engagement_rate from str to int and float, respectively, if you need.
 
-        influencer_dict = {'name': influencer_name,
+        influencer_d
+        ict = {'name': influencer_name,
                            'instagram_id': instagram_id,
                            'topics': topics,
                            'followers_starngage': followers,
