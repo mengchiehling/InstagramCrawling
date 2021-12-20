@@ -4,6 +4,7 @@ import bs4
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
 
 from crawling.models.connector import Connector
 
@@ -44,7 +45,12 @@ class Influencer:
 
         while len(all_influencer) < n:
 
-            self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="content"]/div[2]/div/div/table')))
+            while True:
+                try:
+                    self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="content"]/div[2]/div/div/table')))
+                    break
+                except TimeoutException:
+                    pass
 
             plp_html = self.connector.get_bs4_page_html()
 
